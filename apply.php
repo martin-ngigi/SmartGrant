@@ -41,6 +41,7 @@ session_start();
 	$employed = "{$info['Employed']}";
 	$first_name = "{$info['First_Name']}";
 	$last_name = "{$info['Last_Name']}";
+	$email = "{$info['Email']}"; 
 	
 	$application_date ="".date("d/m/Y");
 	$time = date("h:i:sa d/m/Y");;
@@ -129,7 +130,7 @@ session_start();
 			else{ //Now he/she is eligible
 
 				//save data to db:
-				$sql2="INSERT INTO applications(Username, Id_Number, Application_Date, Application_Time, Amount, Status, Served_By, Disbursed_Date, Phone, First_Name, Last_Name) VALUES('$username', '$id_nu', '$application_date', '$time', '$amount', '$status', '$served_by', '$disbursed_date', '$phone','$first_name', '$last_name')";
+				$sql2="INSERT INTO applications(Username, Id_Number, Application_Date, Application_Time, Amount, Status, Served_By, Disbursed_Date, Phone, First_Name, Last_Name, Email) VALUES('$username', '$id_nu', '$application_date', '$time', '$amount', '$status', '$served_by', '$disbursed_date', '$phone','$first_name', '$last_name', '$email')";
 
 				$result=mysqli_query($data, $sql2);
 				if ($result){

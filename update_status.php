@@ -30,6 +30,10 @@ session_start();
 
 	$sql="SELECT * FROM applications WHERE Id_Number='$id_num' AND Application_Date LIKE '%$month_year' ";
 	$result=mysqli_query($data, $sql);
+	//get email
+	$my_info= mysqli_fetch_assoc($result);
+	$email = "{$my_info['Email']}";
+	echo "$email";
 
 	$disbursed_date = "";
 	
@@ -52,13 +56,14 @@ session_start();
 
 		$result2 = mysqli_query($data, $query);
 
+
 		//result success
 		if ($result2) {
 			// echo "Update success";
 
 			//send email
 			//$to      = 'marjoriemuloma1@gmail.com';
-			$to      = 'martinwainaina001@gmail.com';
+			$to      = $email;
 		    $subject = 'Application status';
 		    $message = $status;
 		    $headers = 'From: martinwainaina001@gmail.com'       . "\r\n" .
