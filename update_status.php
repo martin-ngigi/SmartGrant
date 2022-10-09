@@ -29,7 +29,9 @@ session_start();
 	$month_year = date("m/Y");
 
 	$sql="SELECT * FROM applications WHERE Id_Number='$id_num' AND Application_Date LIKE '%$month_year' ";
+	
 	$result=mysqli_query($data, $sql);
+	
 	//get email
 	$my_info= mysqli_fetch_assoc($result);
 	$email = "{$my_info['Email']}";
@@ -120,7 +122,8 @@ session_start();
 
 			<!-- while loop -->
 			<?php
-			while ($info=$result->fetch_assoc())
+			$info = $my_info;
+			//while ($info=$result->fetch_assoc())
 			{ // while loop start
 			?>
 			<!-- cells where data will be displayed -->

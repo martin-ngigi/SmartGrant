@@ -25,6 +25,7 @@ session_start();
 	}
 
 	$username =$_SESSION['Username'];
+	echo "$username";
 
 
 	//For checking whether there are applications
