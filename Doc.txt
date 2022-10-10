@@ -1,0 +1,7 @@
+//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+$data=mysqli_connect('localhost', 'spaceweb_spaceweb_smartgrant_user', 'vfy8dMSEk6V#', 'spaceweb_smartgrant');
+
+
+DB name : spaceweb_smartgrant
+user name: spaceweb_spaceweb_smartgrant_user
+password: vfy8dMSEk6V#

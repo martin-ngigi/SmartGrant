@@ -29,7 +29,7 @@ if (isset($_POST['update_btn'])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width-device-width", initital-scale-1.0>
-	<title>Smart Pension</title>
+	<title>Smart Grant</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -43,7 +43,7 @@ if (isset($_POST['update_btn'])) {
 <body>
 
 	<nav>
-		<label class="logo">Smart Pension</label>
+		<label class="logo">Smart Grant</label>
 		<ul>
 			<li><a href="applicanthome.php">Home</a></li>
 			<li><a href="contact.php">Contact</a></li>
@@ -63,7 +63,7 @@ if (isset($_POST['update_btn'])) {
 				<img class="welcome_img" src="images/House.jpg">
 			</div>
 			<div class="col-md-8">
-				<h1>Welcome to Smart Pension</h1>
+				<h1>Welcome to Smart Grant</h1>
 				<p>A mind that is not concerned with itself, that is free of ambition, a mind that not caught up in its own desires or driven by its own pursuit of success – such a mind is not shallow and it flowers in goodness.</p>
 			</div>
 		</div>

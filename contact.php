@@ -167,7 +167,7 @@ if (isset($_POST['apply_btn']))
 </head>
 <body>
 	<nav>
-		<label class="logo">Smart Pension</label>
+		<label class="logo">Smart Grant</label>
 		<ul>
 			<li><a href="applicanthome.php">Home</a></li>
 			<li><a href="contact.php">Contact</a></li>
