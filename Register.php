@@ -7,6 +7,14 @@ error_reporting(0);
 //connect to db
 $data=mysqli_connect('localhost', 'root', '', 'smartgrant');
 
+/**START OF SAVING IMAGE**/
+// if(isset($_POST['but_upload'])){
+
+  
+ 
+// }
+/**START OF SAVING IMAGE**/
+
 // if register_btn is clicked
 if (isset($_POST['register_btn'])) {
 	//get data
@@ -54,6 +62,33 @@ if (isset($_POST['register_btn'])) {
 				</script>";
 		  
 		}
+	/**START OF SAVING IMAGE**/
+	$iname = $_FILES['file']['name'];
+    $my_image_name = $username;
+    $target_dir = "upload/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+    // Select file type
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Valid file extensions
+    $extensions_arr = array("jpg","jpeg","png","gif");
+
+    // Check extension
+    if( in_array($imageFileType,$extensions_arr) ){
+
+    	// Upload file
+    	if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$iname)){
+	       // Convert to base64 
+	       $image_base64 = base64_encode(file_get_contents('upload/'.$iname) );
+	       $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+	       // Insert record
+	       $query = "insert into images(ImageId_name,Image,Id_Num) values('$my_image_name', '".$image."', '$id_nu')";
+	       mysqli_query($data,$query);
+        }
+    
+    }
+    /**END OF SAVING IMAGE**/
 	
 
 	//before saving, first check whether there is another student with the same username so as to avoid corrission of usernames
@@ -91,6 +126,8 @@ if (isset($_POST['register_btn'])) {
 
 	
 }
+
+
 
 
 ?>
@@ -167,7 +204,7 @@ if (isset($_POST['register_btn'])) {
 		<h1>Register</h1>
 		<div class="div_deg">
 			<!-- # means we are going to add some code in the same same file so as to save/insert/upload -->
-			<form action="#" method="POST" id="s">
+			<form action="#" method="POST" id="s" enctype='multipart/form-data'>
 				<div class="adm_int">
 					<label class="label_text">First Name</label>
 					<input class="input_deg" type="text" name="first_name_input">
@@ -264,6 +301,9 @@ if (isset($_POST['register_btn'])) {
 				<div class="adm_int">
 					<label class="label_text">ID</label>
 					<input class="input_deg" type="number" name="id_input">
+				</div>
+				<div class="adm_int">
+				    <input style="width: 200px;" class="input_deg" type='file' name='file' />
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Bank</label>

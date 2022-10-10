@@ -172,5 +172,25 @@ session_start();
 		</form>
 	</table>
 
+	<!-- START OF VIEW IMAGE -->
+	<?php
+	 include("config.php");
+
+ 	//get id_num from current_applications when update button is clicked
+	 $id_num = $_GET['national_id'];
+
+	 $sql = "select image from images where Id_Num =  $id_num";
+	 $result = mysqli_query($con,$sql);
+	 $row = mysqli_fetch_array($result);
+
+	 $image_src = $row['image'];
+	 
+	?>
+
+	<div style="margin-left: 300px; margin-top: 20px; width: 50px; height: 50px; ">
+		<img src='<?php echo $image_src; ?>' >
+	</div>
+	<!-- START OF END IMAGE -->
+
 </body>
 </html>
