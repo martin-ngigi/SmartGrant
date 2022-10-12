@@ -26,7 +26,7 @@ session_start();
 
 	$month_year = date("m/Y");
 
-	$sql="SELECT * FROM applications WHERE Application_Date LIKE '%$month_year'"; ////////////////////
+	$sql="SELECT * FROM applications WHERE Application_Date LIKE '%$month_year' AND Status NOT Like  '%Disbursed%'"; ////////////////////
 	$result=mysqli_query($data, $sql);
 
 
