@@ -251,11 +251,35 @@ col-md-4{
 
 
 /*Login form*/
-
+.body_deg_login
+{
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
 
 .form_deg
 {
-	padding: 300px;
+	padding: 200px;
+}
+
+.title_deg
+{
+	background: lightgreen;
+	color: darkred;
+	width: 600px;
+	font-size: 22px;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	font-family: "Poppins", sans-serif;
+}
+
+.login_form
+{
+	background-color: skyblue;
+	width: 600px;
+	padding: 70px;
 }
 
 .label_deg
@@ -271,13 +295,6 @@ col-md-4{
 	font-family: "Poppins", sans-serif;
 }
 
-.login_form
-{
-	background-color: skyblue;
-	width: 600px;
-	padding: 200px;
-}
-
 #login_btn
 {
 	position: relative;
@@ -285,22 +302,4 @@ col-md-4{
 	left: 5%;
 }
 
-.title_deg
-{
-	background: lightgreen;
-	color: darkred;
-	width: 500px;
-	font-size: 22px;
-	text-align: center;
-	font-weight: bold;
-	padding: 10px;
-	font-family: "Poppins", sans-serif;
-}
-
-.body_deg_login
-{
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: 100% 100%;
-}
 /*End of Login*/

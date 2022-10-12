@@ -190,7 +190,7 @@ if (isset($_POST['apply_btn']))
 			</p>
 
 		</center>
-		</div>
+	</div>
 	<div align="center" class="admission_form">
 		<form action="#" method="POST">
 			<div class="adm_int">

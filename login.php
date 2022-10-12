@@ -14,14 +14,10 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<style type="text/css">
-
-</style>
-
 </head>
 <body class="body_deg_login">
+	<center>
 	<nav>
-		<label class="logo">Smart Grant</label>
 		<ul>
 			<li><a href="index.php">Home</a></li>
 			<li><a href="apply.php">Applications</a></li>
@@ -30,36 +26,34 @@
 			<li><a href="Register.php" class="btn btn-success">Register</a></li>
 		</ul>
 	</nav>
-
-	<center>
-		<div class="form_deg" >
-			<center class="title_deg" style="width: 600px;">
-				Login form
-				<!-- show error message -->
-				<h4 style="color: red">
-					<?php
-					//dont show warnings and uncessary errors
-					error_reporting(0); 
-					session_start(); //show the message
-					session_destroy();
-					echo $_SESSION['loginMessage'];
-					?>
-				</h4>
-			</center>
-			<form action="login_check.php" method="POST" class="login_form" style="width: 600px;">
-				<div class="adm_int">
-					<label class="label_text">Username</label>
-					<input class="input_deg" type="text" name="username">
-				</div>
-				<div class="adm_int">
-					<label class="label_text">Password</label>
-					<input class="input_deg" type="Password" name="password">
-				</div>
-				<div class="adm_int">
-					<input class="btn-primary" type="submit" name="submit" value="login" id="login_btn">
-				</div>
-			</form>
-		</div>
+	<div class="form_deg">
+		<center class="title_deg">
+			Login form
+			<!-- show error message -->
+			<h4 style="color: red">
+				<?php
+				//dont show warnings and uncessary errors
+				error_reporting(0); 
+				session_start(); //show the message
+				session_destroy();
+				echo $_SESSION['loginMessage'];
+				?>
+			</h4>
+		</center>
+		<form action="login_check.php" method="POST" class="login_form">
+			<div>
+				<label class="label_deg">Username</label>
+				<input type="text" name="username">
+			</div>
+			<div>
+				<label class="label_deg">Password</label>
+				<input type="Password" name="password">
+			</div>
+			<div>
+				<input class="btn-primary" type="submit" name="submit" value="login" id="login_btn">
+			</div>
+		</form>
+	</div>
 	</center>
 </body>
 </html>
