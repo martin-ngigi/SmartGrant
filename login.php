@@ -28,7 +28,7 @@
 	</nav>
 	<div class="form_deg">
 		<center class="title_deg">
-			Login form
+			Login
 			<!-- show error message -->
 			<h4 style="color: red">
 				<?php
