@@ -176,6 +176,21 @@ if (isset($_POST['apply_btn']))
 			<li><a href="logout.php" class="btn btn-success">Logout</a></li>
 		</ul>
 	</nav>
+	<div>
+		<center>
+			<p>
+				<br>
+				Contacts<br>
+				National Social Protection Secretariat<br>
+				ACK Parking Silo,<br>
+				Opp. NSSF Building 9th Flr<br>
+				Phone: 2723011, 0772092971, 0735564408<br>
+				P.O. Box 16936-00100 GPO, NAIROBI<br>
+				E-mail: info@socialprotection.or.ke<br>
+			</p>
+
+		</center>
+		</div>
 	<div align="center" class="admission_form">
 		<form action="#" method="POST">
 			<div class="adm_int">
@@ -199,5 +214,13 @@ if (isset($_POST['apply_btn']))
 			</div>
 		</form>
 	</div>
+	<center>
+		<div style="padding-bottom: 100px;">
+						<h2>About Us</h2>
+			<p>
+				Older Person’s Cash Transfer (OPCT) is a Kenyan Government initiative which is<br> under the Ministry of East African Community, Labour and Social Protection and aims<br> to transfer cash to older Kenyans who are 70 years and above to enable them to<br> live a decent life. The programme was begun in 2007 in Kenya and it started as<br> a pilot in three districts: Thika, and Nyando and was implemented in Busia, <br>under an initiative called the Rapid Response Initiative (RRI)-2007. It aims at <br>providing cash transfers to poor and unprotected older people in recognized worthy<br> households. The programme is funded by the Government of Kenya, it is a <br>national programme that is currently covering all the constituencies. Its main <br>office and at National Social Protection Secretariat ACK Parking Silo, Opp. NSSF<br> Building 9th Flr though it has offices in all constituencies.<br>
+			</p>
+		</div>
+	</center>
 </body>
 </html>

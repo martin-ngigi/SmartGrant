@@ -44,7 +44,9 @@ session_start();
 	 		 <p>3. Not enrolled or receiving pension from another organization.</p>
 	 		 <p>4. Must have a registered active KCB or equity bank account.</p>
 	 		 <p>5. Must have lived in the constituency for more than a year.</p>
-	 		 <p>6. Must not be employed.</p>
+	 		 <p>6. The applicant must not be employed.</p>
+	 		 <p>7. A member of the household must not be receiving <br>any pension and/or regular income.</p>
+	 		 <p>A member of the household must not be in any gainful employment.</p>
 	 	</div>
 	 </center>
 </body>
