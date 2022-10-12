@@ -7,13 +7,14 @@ error_reporting(0);
 //connect to db
 $data=mysqli_connect('localhost', 'root', '', 'smartgrant');
 
-/**START OF SAVING IMAGE**/
-// if(isset($_POST['but_upload'])){
-
-  
- 
-// }
-/**START OF SAVING IMAGE**/
+//function to validate date
+function isDate($birth_date) {
+    $matches = array();
+    $pattern = '/^([0-9]{1,2})\\/([0-9]{1,2})\\/([0-9]{4})$/';
+    if (!preg_match($pattern, $birth_date, $matches)) return false;
+    if (!checkdate($matches[2], $matches[1], $matches[3])) return false;
+    return true;
+}
 
 // if register_btn is clicked
 if (isset($_POST['register_btn'])) {
@@ -42,7 +43,130 @@ if (isset($_POST['register_btn'])) {
 	$nk_email = $_POST['nk_email_input'];
 	$usertype="applicant";
 
-	//CALCULATE AGE
+	$id_num_length = strlen((string)$id_nu);
+	$birthDate = "";
+
+	//VALIDATE INPUT
+	if(!isset($first_name) || trim($first_name) == '')
+	{
+		echo "<script type='text/javascript'>
+				alert(' First Name is empty. Enter a valid Last Name');
+				</script>";
+
+	}
+	if (!isset($last_name) || trim($last_name) == '') {
+		echo "<script type='text/javascript'>
+		alert('Last Name is empty. Enter a valid Last Name');
+		</script>";
+	}
+	if (!isset($username) || trim($username) == '') {
+		echo "<script type='text/javascript'>
+		alert('User Name is empty. Enter a valid User Name');
+		</script>";
+
+	}
+	if (!isset($email) || trim($email) == '') {
+		echo "<script type='text/javascript'>
+		alert('User email is empty. Enter a valid email');
+		</script>";
+	}
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	    echo "<script type='text/javascript'>
+		alert('Wrong Email format. Enter a valid email');
+		</script>";
+	}
+	if (!isset($phone) || trim($phone) == '') {
+		echo "<script type='text/javascript'>
+		alert('phone is empty. Enter a valid phone');
+		</script>";
+	}
+		    //validate phone number phone number should of length 10 or 13 ie 07 or +254
+	if(! preg_match('/^(\+254|0)\d{9}$/', $phone)) { //! maeans phone number doesnt match pattern
+	   echo "<script type='text/javascript'>
+			alert('$phone is not valid phone number. Enter a valid phone number');
+			</script>";
+	  
+	}
+	if (!isDate($birth_date)) {
+	    echo "<script type='text/javascript'>
+		alert('Invalid date format. Enter a valid date in the form of dd/mm/yyyyy');
+		</script>";
+	}
+
+	if (!isset($constituency) || trim($constituency) == '') {
+		echo "<script type='text/javascript'>
+		alert('constituency is empty. Enter a valid constituency');
+		</script>";
+	}
+
+	if (!isset($nationality) || trim($nationality) == '') {
+		echo "<script type='text/javascript'>
+		alert('nationality is empty. Enter a valid nationality');
+		</script>";
+	}
+
+	if (!isset($id_nu) || trim($id_nu) == '') {
+		echo "<script type='text/javascript'>
+		alert('ID Number is empty. Enter a valid ID Number');
+		</script>";
+	}
+
+	if($id_num_length != 8) {
+	    echo "<script type='text/javascript'>
+		alert('ID Number length is not equal to 8 and not Valid. length is $id_num_length');
+		</script>";
+	}
+
+	if (!isset($account_nu) || trim($account_nu) == '') {
+		echo "<script type='text/javascript'>
+		alert('Account Number is empty. Enter a valid Account Number');
+		</script>";
+	}
+
+	if (!isset($kra_pin) || trim($kra_pin) == '') {
+		echo "<script type='text/javascript'>
+		alert('KRA Pin is empty. Enter a valid KRA pin');
+		</script>";
+	}
+
+	if (!isset($password) || trim($password) == '') {
+		echo "<script type='text/javascript'>
+		alert('Password is empty. Enter a valid Password');
+		</script>";
+	}
+
+	if (!isset($nk_name) || trim($nk_name) == '') {
+		echo "<script type='text/javascript'>
+		alert('Next of Kin Name is empty. Enter a valid Next of Kin Name');
+		</script>";
+	}
+
+	if (!isset($nk_id) || trim($nk_id) == '') {
+		echo "<script type='text/javascript'>
+		alert('Next of Kin ID is empty. Enter a valid Next of Kin ID');
+		</script>";
+	}
+
+	if (!isset($nk_relationship) || trim($nk_relationship) == '') {
+		echo "<script type='text/javascript'>
+		alert('Next of Kin relationship is empty. Enter a valid Next of Kin relationship');
+		</script>";
+	}
+
+	if (!isset($nk_phone) || trim($nk_phone) == '') {
+		echo "<script type='text/javascript'>
+		alert('Next of Kin phone is empty. Enter a valid Next of Kin phone');
+		</script>";
+	}
+
+	if (!isset($nk_email) || trim($nk_email) == '') {
+		echo "<script type='text/javascript'>
+		alert('Next of Kin email is empty. Enter a valid Next of Kin email');
+		</script>";
+	}
+
+	if (isDate($birth_date)) { //calculate age only when date format is valid
+	  //CALCULATE AGE
 	  //date in mm/dd/yyyy format; or it can be in other formats as well
 	  //$birthDate = "12/17/1983";
 	  $birthDate = $birth_date;
@@ -54,14 +178,10 @@ if (isset($_POST['register_btn'])) {
 	    : (date("Y") - $birthDate[2]));
 	 // echo "Age is:" . $age;
 
-	    //validate phone number
-	  if(! preg_match('/^(\+254|0)\d{9}$/', $phone)) { //! maeans phone number doesnt match pattern
-		   //echo "$data_phone is not valid phone number";
-		   echo "<script type='text/javascript'>
-				alert('$phone is not valid phone number. Enter a valid phone number');
-				</script>";
-		  
-		}
+	}
+
+
+
 	/**START OF SAVING IMAGE**/
 	$iname = $_FILES['file']['name'];
     $my_image_name = $username;

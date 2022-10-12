@@ -190,7 +190,7 @@ session_start();
 	<div style="margin-left: 300px; margin-top: 20px; width: 50px; height: 50px; ">
 		<img src='<?php echo $image_src; ?>' >
 	</div>
-	<!-- START OF END IMAGE -->
+	<!-- END OF END IMAGE -->
 
 </body>
 </html>
