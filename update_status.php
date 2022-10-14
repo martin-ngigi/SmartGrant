@@ -94,6 +94,13 @@ session_start();
 	include 'applicant_css.php';
 
 	 ?>
+
+	 <style type="text/css">
+	 	img{
+	 		width: 300px;
+	 		height: 300px; 
+	 	}
+	 </style>
 	
 </head>
 <body>
@@ -187,7 +194,7 @@ session_start();
 	 
 	?>
 
-	<div style="margin-left: 300px; margin-top: 20px; width: 50px; height: 50px; ">
+	<div style="margin-left: 300px; margin-top: 20px; ">
 		<img src='<?php echo $image_src; ?>' >
 	</div>
 	<!-- END OF END IMAGE -->

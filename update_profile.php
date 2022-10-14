@@ -38,6 +38,7 @@ session_start();
 		$birth_date = $_POST['birth_date_input'];
 		$age = $_POST['age_input'];
 		$county = $_POST['county_input'];
+		$constituency = $_POST['constituency_input'];
 		$nationality = $_POST['nationality_input'];
 		$gender = htmlspecialchars($_POST['genderDD']);
 		$id_nu = $_POST['id_input'];
@@ -55,7 +56,7 @@ session_start();
 		$usertype="applicant";
 
 
-		$sql2 = "UPDATE user SET Date_of_birth='$birth_date', Phone='$phone', Age='$age', County='$county', Nationality='$nationality', Gender='$gender', ID_Nu='$id_nu', Bank='$bank', Account_Nu='$account_nu', KRA_Pin='$kra_pin', Employed='$employed', Pension_Beneficiary='$pension_beneficiary', Password='$password', NK_Name='$nk_name', NK_ID='$nk_id', NK_Relationship='$nk_relationship', NK_Phone='$nk_phone', NK_Email='$nk_email', Email='$email' WHERE Username='$name'";
+		$sql2 = "UPDATE user SET Date_of_birth='$birth_date', Phone='$phone', Age='$age', County='$county', Nationality='$nationality', Gender='$gender', ID_Nu='$id_nu', Bank='$bank', Account_Nu='$account_nu', KRA_Pin='$kra_pin', Employed='$employed', Pension_Beneficiary='$pension_beneficiary', Password='$password', NK_Name='$nk_name', NK_ID='$nk_id', NK_Relationship='$nk_relationship', NK_Phone='$nk_phone', NK_Email='$nk_email', Email='$email', Constituency='$constituency' WHERE Username='$name'";
 
 		$result = mysqli_query($data, $sql2);
 
@@ -163,6 +164,10 @@ session_start();
 				<div class="adm_int">
 					<label class="label_text">County</label>
 					<input class="input_deg" type="text" name="county_input" value="<?php echo"{$info['County']}" ?>">
+				</div>
+				<div class="adm_int">
+					<label class="label_text">Constituency</label>
+					<input class="input_deg" type="text" name="constituency_input" value="<?php echo"{$info['Constituency']}" ?>">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Nationality</label>

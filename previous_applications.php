@@ -74,7 +74,7 @@ session_start();
 	<center>
 		<h1>Current and Previous Application(s)</h1>
 
-		<table border="1px" style="margin-left: 160px;">
+		<table border="1px" style="margin-left: 200px;">
 			<!-- table header -->
 			<tr>
 				<th style="padding: 20px; font-size: 15px;">Username</th>
