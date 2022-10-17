@@ -315,12 +315,6 @@ if (isset($_POST['register_btn'])) {
 <div class="content">
 
 	<center>
-		<div class="logout">
-			<a href="index.php"> Home </a>
-			<a href="apply.php"> Applications </a>
-			<a href="contact.php">Contact</a></li>
-			<a href="login.php" class="btn btn-primary">Login</a>
-		</div>
 		<h1>Register</h1>
 		<div class="div_deg">
 			<!-- # means we are going to add some code in the same same file so as to save/insert/upload -->

@@ -17,15 +17,6 @@
 </head>
 <body class="body_deg_login">
 	<center>
-	<nav>
-		<ul>
-			<li><a href="index.php">Home</a></li>
-			<li><a href="apply.php">Applications</a></li>
-			<li><a href="contact.php">Contact</a></li>
-			<li><a href="login.php" class="btn btn-success">Login</a></li>
-			<li><a href="Register.php" class="btn btn-success">Register</a></li>
-		</ul>
-	</nav>
 	<div class="form_deg">
 		<center class="title_deg">
 			Login
