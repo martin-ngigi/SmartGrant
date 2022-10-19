@@ -122,7 +122,7 @@ session_start();
 		</form>
 
 		<!-- javascript to print table -->
-		<a href="javascript:void(0);" onclick="printPage();">Print</a> 
+		<a href="javascript:void(0);" onclick="printPage();">Generate Report</a> 
 
 		<script type="text/javascript">
 		 function printPage(){
