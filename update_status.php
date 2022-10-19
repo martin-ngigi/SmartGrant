@@ -195,7 +195,8 @@ session_start();
 	?>
 
 	<div style="margin-left: 300px; margin-top: 20px; ">
-		<img src='<?php echo $image_src; ?>' >
+		<img src="<?php echo $image_src; ?>" alt="HTML5 Icon" style="width:350px;height:350px;">
+
 	</div>
 	<!-- END OF END IMAGE -->
 
