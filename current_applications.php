@@ -17,7 +17,8 @@ session_start();
 
 
 	//connect to db
-	$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+	//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+	include("config.php");
 	//check if connection succeeeded
 	if ($data -> connect_errno) {
 	  echo "Failed to connect to MySQL: " . $data -> connect_error;

@@ -14,7 +14,8 @@ elseif ($_SESSION['UserType']=='admin') {
 }
 
 
-$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+include("config.php");
 
 //this method is called only if "apply-btn" is clicked.... "apply-btn" is in contact.php
 if (isset($_POST['apply_btn'])) 
@@ -178,9 +179,8 @@ if (isset($_POST['apply_btn']))
 	</nav>
 	<div>
 		<center>
+			<h2>Contact</h2>
 			<p>
-				<br>
-				Contacts<br>
 				National Social Protection Secretariat<br>
 				ACK Parking Silo,<br>
 				Opp. NSSF Building 9th Flr<br>

@@ -5,8 +5,8 @@ error_reporting(0);
 //start session
 session_start();
 
-
-$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+include("config.php");
+//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
 
 //check if connection succeeeded
 if ($data -> connect_errno) {

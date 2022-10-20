@@ -5,7 +5,9 @@ session_start();
 error_reporting(0);
 
 //connect to db
-$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+include("config.php");
+
+//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
 
 //function to validate date
 function isDate($birth_date) {
@@ -46,124 +48,124 @@ if (isset($_POST['register_btn'])) {
 	$id_num_length = strlen((string)$id_nu);
 	$birthDate = "";
 
-	//VALIDATE INPUT
-	if(!isset($first_name) || trim($first_name) == '')
-	{
-		echo "<script type='text/javascript'>
-				alert(' First Name is empty. Enter a valid Last Name');
-				</script>";
+	// //VALIDATE INPUT
+	// if(!isset($first_name) || trim($first_name) == '')
+	// {
+	// 	echo "<script type='text/javascript'>
+	// 			alert(' First Name is empty. Enter a valid Last Name');
+	// 			</script>";
 
-	}
-	if (!isset($last_name) || trim($last_name) == '') {
-		echo "<script type='text/javascript'>
-		alert('Last Name is empty. Enter a valid Last Name');
-		</script>";
-	}
-	if (!isset($username) || trim($username) == '') {
-		echo "<script type='text/javascript'>
-		alert('User Name is empty. Enter a valid User Name');
-		</script>";
+	// }
+	// if (!isset($last_name) || trim($last_name) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Last Name is empty. Enter a valid Last Name');
+	// 	</script>";
+	// }
+	// if (!isset($username) || trim($username) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('User Name is empty. Enter a valid User Name');
+	// 	</script>";
 
-	}
-	if (!isset($email) || trim($email) == '') {
-		echo "<script type='text/javascript'>
-		alert('User email is empty. Enter a valid email');
-		</script>";
-	}
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	    echo "<script type='text/javascript'>
-		alert('Wrong Email format. Enter a valid email');
-		</script>";
-	}
-	if (!isset($phone) || trim($phone) == '') {
-		echo "<script type='text/javascript'>
-		alert('phone is empty. Enter a valid phone');
-		</script>";
-	}
-		    //validate phone number phone number should of length 10 or 13 ie 07 or +254
-	if(! preg_match('/^(\+254|0)\d{9}$/', $phone)) { //! maeans phone number doesnt match pattern
-	   echo "<script type='text/javascript'>
-			alert('$phone is not valid phone number. Enter a valid phone number');
-			</script>";
+	// }
+	// if (!isset($email) || trim($email) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('User email is empty. Enter a valid email');
+	// 	</script>";
+	// }
+	// if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	//     echo "<script type='text/javascript'>
+	// 	alert('Wrong Email format. Enter a valid email');
+	// 	</script>";
+	// }
+	// if (!isset($phone) || trim($phone) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('phone is empty. Enter a valid phone');
+	// 	</script>";
+	// }
+	// 	    //validate phone number phone number should of length 10 or 13 ie 07 or +254
+	// if(! preg_match('/^(\+254|0)\d{9}$/', $phone)) { //! maeans phone number doesnt match pattern
+	//    echo "<script type='text/javascript'>
+	// 		alert('$phone is not valid phone number. Enter a valid phone number');
+	// 		</script>";
 	  
-	}
-	if (!isDate($birth_date)) {
-	    echo "<script type='text/javascript'>
-		alert('Invalid date format. Enter a valid date in the form of dd/mm/yyyyy');
-		</script>";
-	}
+	// }
+	// if (!isDate($birth_date)) {
+	//     echo "<script type='text/javascript'>
+	// 	alert('Invalid date format. Enter a valid date in the form of dd/mm/yyyyy');
+	// 	</script>";
+	// }
 
-	if (!isset($constituency) || trim($constituency) == '') {
-		echo "<script type='text/javascript'>
-		alert('constituency is empty. Enter a valid constituency');
-		</script>";
-	}
+	// if (!isset($constituency) || trim($constituency) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('constituency is empty. Enter a valid constituency');
+	// 	</script>";
+	// }
 
-	if (!isset($nationality) || trim($nationality) == '') {
-		echo "<script type='text/javascript'>
-		alert('nationality is empty. Enter a valid nationality');
-		</script>";
-	}
+	// if (!isset($nationality) || trim($nationality) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('nationality is empty. Enter a valid nationality');
+	// 	</script>";
+	// }
 
-	if (!isset($id_nu) || trim($id_nu) == '') {
-		echo "<script type='text/javascript'>
-		alert('ID Number is empty. Enter a valid ID Number');
-		</script>";
-	}
+	// if (!isset($id_nu) || trim($id_nu) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('ID Number is empty. Enter a valid ID Number');
+	// 	</script>";
+	// }
 
-	if($id_num_length != 8) {
-	    echo "<script type='text/javascript'>
-		alert('ID Number length is not equal to 8 and not Valid. length is $id_num_length');
-		</script>";
-	}
+	// if($id_num_length != 8) {
+	//     echo "<script type='text/javascript'>
+	// 	alert('ID Number length is not equal to 8 and not Valid. length is $id_num_length');
+	// 	</script>";
+	// }
 
-	if (!isset($account_nu) || trim($account_nu) == '') {
-		echo "<script type='text/javascript'>
-		alert('Account Number is empty. Enter a valid Account Number');
-		</script>";
-	}
+	// if (!isset($account_nu) || trim($account_nu) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Account Number is empty. Enter a valid Account Number');
+	// 	</script>";
+	// }
 
-	if (!isset($kra_pin) || trim($kra_pin) == '') {
-		echo "<script type='text/javascript'>
-		alert('KRA Pin is empty. Enter a valid KRA pin');
-		</script>";
-	}
+	// if (!isset($kra_pin) || trim($kra_pin) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('KRA Pin is empty. Enter a valid KRA pin');
+	// 	</script>";
+	// }
 
-	if (!isset($password) || trim($password) == '') {
-		echo "<script type='text/javascript'>
-		alert('Password is empty. Enter a valid Password');
-		</script>";
-	}
+	// if (!isset($password) || trim($password) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Password is empty. Enter a valid Password');
+	// 	</script>";
+	// }
 
-	if (!isset($nk_name) || trim($nk_name) == '') {
-		echo "<script type='text/javascript'>
-		alert('Next of Kin Name is empty. Enter a valid Next of Kin Name');
-		</script>";
-	}
+	// if (!isset($nk_name) || trim($nk_name) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Next of Kin Name is empty. Enter a valid Next of Kin Name');
+	// 	</script>";
+	// }
 
-	if (!isset($nk_id) || trim($nk_id) == '') {
-		echo "<script type='text/javascript'>
-		alert('Next of Kin ID is empty. Enter a valid Next of Kin ID');
-		</script>";
-	}
+	// if (!isset($nk_id) || trim($nk_id) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Next of Kin ID is empty. Enter a valid Next of Kin ID');
+	// 	</script>";
+	// }
 
-	if (!isset($nk_relationship) || trim($nk_relationship) == '') {
-		echo "<script type='text/javascript'>
-		alert('Next of Kin relationship is empty. Enter a valid Next of Kin relationship');
-		</script>";
-	}
+	// if (!isset($nk_relationship) || trim($nk_relationship) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Next of Kin relationship is empty. Enter a valid Next of Kin relationship');
+	// 	</script>";
+	// }
 
-	if (!isset($nk_phone) || trim($nk_phone) == '') {
-		echo "<script type='text/javascript'>
-		alert('Next of Kin phone is empty. Enter a valid Next of Kin phone');
-		</script>";
-	}
+	// if (!isset($nk_phone) || trim($nk_phone) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Next of Kin phone is empty. Enter a valid Next of Kin phone');
+	// 	</script>";
+	// }
 
-	if (!isset($nk_email) || trim($nk_email) == '') {
-		echo "<script type='text/javascript'>
-		alert('Next of Kin email is empty. Enter a valid Next of Kin email');
-		</script>";
-	}
+	// if (!isset($nk_email) || trim($nk_email) == '') {
+	// 	echo "<script type='text/javascript'>
+	// 	alert('Next of Kin email is empty. Enter a valid Next of Kin email');
+	// 	</script>";
+	// }
 
 	if (isDate($birth_date)) { //calculate age only when date format is valid
 	  //CALCULATE AGE

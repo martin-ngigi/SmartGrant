@@ -23,7 +23,7 @@ if(isset($_POST['but_upload'])){
        $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
        // Insert record
        $query = "insert into images(ImageId_name,Image) values('$my_image_name', '".$image."')";
-       mysqli_query($con,$query);
+       mysqli_query($data,$query);
     }
     
   }

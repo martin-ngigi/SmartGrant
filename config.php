@@ -5,8 +5,8 @@ $user = "root"; /* User */
 $password = ""; /* Password */
 $dbname = "smartgrant"; /* Database name */
 
-$con = mysqli_connect($host, $user, $password,$dbname);
+$data = mysqli_connect($host, $user, $password,$dbname);
 // Check connection
-if (!$con) {
+if (!$data) {
   die("Connection failed: " . mysqli_connect_error());
 }

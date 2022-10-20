@@ -2,7 +2,8 @@
 
 session_start();
 
-$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+include("config.php");
 
 //this method is called only if "apply-btn" is clicked.... "apply-btn" is in index.php
 if (isset($_POST['apply_btn'])) 

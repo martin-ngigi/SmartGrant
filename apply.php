@@ -16,7 +16,8 @@ session_start();
 
 
 	//connect to db
-	$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+	//$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
+	include("config.php");
 	//check if connection succeeeded
 	if ($data -> connect_errno) {
 	  echo "Failed to connect to MySQL: " . $data -> connect_error;
@@ -76,7 +77,7 @@ session_start();
 			// 	</script>";
 
 			//Set error message
-			$message="Not Eligible. You already have a pending or completed pension transaction, please check previous applications and try again next month. Thank you.";
+			$message="Not Eligible. You already have a pending or completed grant transaction, please check previous applications and try again next month. Thank you.";
 			$_SESSION['application_message']=$message; //store error message 
 
 			//clear the success message incase it still there

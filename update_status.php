@@ -18,6 +18,8 @@ session_start();
 	//echo "$id_num";
 
 	//connect to db
+	//include("config.php");
+
 	$data=mysqli_connect('localhost', 'root', '', 'smartgrant');
 	//check if connection succeeeded
 	if ($data -> connect_errno) {
@@ -187,7 +189,7 @@ session_start();
 	 $id_num = $_GET['national_id'];
 
 	 $sql = "select image from images where Id_Num =  $id_num";
-	 $result = mysqli_query($con,$sql);
+	 $result = mysqli_query($data,$sql);
 	 $row = mysqli_fetch_array($result);
 
 	 $image_src = $row['image'];

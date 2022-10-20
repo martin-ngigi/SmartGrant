@@ -2,7 +2,7 @@
  include("config.php");
 
  $sql = "select image from images where ImageId_name = 'my_image2'";
- $result = mysqli_query($con,$sql);
+ $result = mysqli_query($data,$sql);
  $row = mysqli_fetch_array($result);
 
  $image_src = $row['image'];
