@@ -165,7 +165,7 @@ session_start();
 						    <option value="Pending: Please Wait, We Will Update You">Pending</option>
 						    <option value="Processing: Please Wait Till Completed">Processing</option>
 						    <option value="Disbursed: Check Your Account Balance">Disbursed</option>
-						    <option value="Cancelled: Please Contact Customer-Care For More Details">Cancelled</option>
+						    <option value="Rejected: Please Contact Customer-Care For More Details">Rejected</option>
 					    </select> 
 					</div>
 				</td>
