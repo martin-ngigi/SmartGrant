@@ -10,3 +10,5 @@ $data = mysqli_connect($host, $user, $password,$dbname);
 if (!$data) {
   die("Connection failed: " . mysqli_connect_error());
 }
+
+?>
