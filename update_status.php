@@ -4,14 +4,14 @@ error_reporting(0);
 session_start();
 
 // Import PHPMailer classes into the global namespace 
-use phpmailer\src\PHPMailer; 
-use phpmailer\src\SMTP; 
-use phpmailer\src\Exception; 
+use PHPMailer\PHPMailer\PHPMailer; 
+use PHPMailer\PHPMailer\SMTP; 
+use PHPMailer\PHPMailer\Exception; 
  
 // Include library files 
-require 'phpmailer/src/Exception.php'; 
-require 'phpmailer/src/PHPMailer.php'; 
-require 'phpmailer/src/SMTP.php'; 
+require 'PHPMailer/src/Exception.php'; 
+require 'PHPMailer/src/PHPMailer.php'; 
+require 'PHPMailer/src/SMTP.php'; 
 
 
 
@@ -89,14 +89,17 @@ require 'phpmailer/src/SMTP.php';
 			$mail->isSMTP();                            // Set mailer to use SMTP 
 			$mail->Host = 'smtp.gmail.com';           // Specify main and backup SMTP servers 
 			$mail->SMTPAuth = true;                     // Enable SMTP authentication 
-			$mail->Username = 'martinwainaina001@gmail.com';       // SMTP username 
-			$mail->Password = 'qeyviwbzgrjphghz';         // SMTP password 
+			$mail->Username = 'marjoriemuloma1@gmail.com';       // SMTP username 
+			$mail->Password = 'wnwnigrqtoqxzldq';         // SMTP password 
 			$mail->SMTPSecure = 'ssl';                  // Enable TLS encryption, `ssl` also accepted 
 			$mail->Port = 465;                          // TCP port to connect to 
 			 
+ 		// 	$mail->Username = 'martinwainaina001@gmail.com';       // SMTP username 
+			// $mail->Password = 'qeyviwbzgrjphghz';         // SMTP password 
+
 			// Sender info 
-			$mail->setFrom('martinwainaina001@gmail.com', 'Martin Wainaina'); 
-			$mail->addReplyTo('martinwainaina001@gmail.com', 'Martin Wainaina'); 
+			$mail->setFrom('marjoriemuloma1@gmail.com', 'Marjorie Muloma'); 
+			$mail->addReplyTo('marjoriemuloma1@gmail.com', 'Marjorie Muloma'); 
 			 
 			// Add a recipient 
 			$mail->addAddress($email); //GET $email from update_status.php
