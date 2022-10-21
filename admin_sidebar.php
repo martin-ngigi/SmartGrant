@@ -1,10 +1,9 @@
 <header class="header">
-	<a href="">Applicant Dashboard</a>
+	<a href="">Admin Dashboard</a>
 	<div class="logout">
-		<a href="index.php"> Home </a>
+		<a href="admin_index.php"> Home </a>
 		<a href="current_applications.php"> Applications </a>
 		<a href="logout.php" class="btn btn-primary">Logout</a>
-
 	</div>
 </header>
 <aside>

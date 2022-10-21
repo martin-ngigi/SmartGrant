@@ -70,7 +70,7 @@ session_start();
 
 	 ?>
 	<center>
-		<h1>Current and Previous Application(s)</h1>
+		<h1>Current Application(s)</h1>
 		<form action="#" method="POST" > <!-- # means after clicking, stay on this page -->
 
 			<table border="1px" style="margin-left: 150px;">

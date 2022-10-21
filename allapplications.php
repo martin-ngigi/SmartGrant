@@ -72,7 +72,7 @@ session_start();
 		<h1>Current and Previous Application(s)</h1>
 		<form action="#" method="POST" > <!-- # means after clicking, stay on this page -->
 
-			<table border="1px" style="margin-left: 190px;">
+			<table border="1px" style="margin-left: 250px;">
 				<!-- table header -->
 				<tr>
 					<th style="padding: 10px; font-size: 15px;">UserName</th>
