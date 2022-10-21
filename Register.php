@@ -323,27 +323,27 @@ if (isset($_POST['register_btn'])) {
 			<form action="#" method="POST" id="s" enctype='multipart/form-data'>
 				<div class="adm_int">
 					<label class="label_text">First Name</label>
-					<input class="input_deg" type="text" name="first_name_input">
+					<input class="input_deg" type="text" name="first_name_input" pattern="[A-Za-z]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Last Name</label>
-					<input class="input_deg" type="text" name="last_name_input">
+					<input class="input_deg" type="text" name="last_name_input"  pattern="[A-Za-z]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Username</label>
-					<input class="input_deg" type="text" name="user_name_input">
+					<input class="input_deg" type="text" name="user_name_input"  pattern="[A-Za-z]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Email</label>
-					<input class="input_deg" type="text" name="email_input">
+					<input class="input_deg" type="email" name="email_input" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Phone</label>
-					<input class="input_deg" type="text" name="phone_input">
+					<input class="input_deg" type="number" name="phone_input" pattern="[0-9]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Date Of Birth</label>
-					<input class="input_deg" type="text" placeholder="NB: use dd/mm/yyyy format" name="birth_date_input">
+					<input class="input_deg" type="date" name="birth_date_input">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">County</label>
@@ -400,11 +400,11 @@ if (isset($_POST['register_btn'])) {
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Constituency</label>
-					<input class="input_deg" type="text" name="constituency_input">
+					<input class="input_deg" type="text" name="constituency_input" pattern="[A-Za-z]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Nationality</label>
-					<input class="input_deg" type="text" name="nationality_input">
+					<input class="input_deg" type="text" name="nationality_input" pattern="[A-Za-z]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Gender</label>
@@ -416,7 +416,7 @@ if (isset($_POST['register_btn'])) {
 				</div>
 				<div class="adm_int">
 					<label class="label_text">ID</label>
-					<input class="input_deg" type="number" name="id_input">
+					<input class="input_deg" type="number" name="id_input" pattern="[0-9]+" required="true">
 				</div>
 				<div class="adm_int">
 				    <input style="width: 200px;" class="input_deg" type='file' name='file' />
@@ -430,11 +430,11 @@ if (isset($_POST['register_btn'])) {
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Account Nu.</label>
-					<input class="input_deg" type="text" name="account_nu_input">
+					<input class="input_deg" type="number" name="account_nu_input" pattern="[0-9]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">KRA Pin.</label>
-					<input class="input_deg" type="text" name="kra_pin_input">
+					<input class="input_deg" type="text" name="kra_pin_input" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Employed</label>
@@ -452,30 +452,30 @@ if (isset($_POST['register_btn'])) {
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Password</label>
-					<input class="input_deg" type="text" name="password_input">
+					<input class="input_deg" type="text" name="password_input" required="true">
 				</div>
 				<div>
 					<h3>Next Of Kin</h3>
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Name</label>
-					<input class="input_deg" type="text" name="nk_name_input">
+					<input class="input_deg" type="text" name="nk_name_input" pattern="[A-Za-z]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">ID</label>
-					<input class="input_deg" type="number" name="nk_id_input">
+					<input class="input_deg" type="number" name="nk_id_input" pattern="[0-9]+" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Relationship</label>
-					<input class="input_deg" type="text" name="nk_relationship_input">
+					<input class="input_deg" type="text" name="nk_relationship_input" pattern="[A-Za-z]+" required="true" >
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Phone</label>
-					<input class="input_deg" type="number" name="nk_phone_input">
+					<input class="input_deg" type="number" name="nk_phone_input" pattern="[0-9]+" required="true">
 				</div>
 					<div class="adm_int">
 					<label class="label_text">Email</label>
-					<input class="input_deg" type="text" name="nk_email_input">
+					<input class="input_deg" type="email" name="nk_email_input"  required="true">
 				</div>
 				<div>
 					<input class="btn btn-success" type="submit" name="register_btn" value="Register">
