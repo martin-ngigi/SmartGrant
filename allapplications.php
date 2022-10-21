@@ -72,17 +72,17 @@ session_start();
 		<h1>Current and Previous Application(s)</h1>
 		<form action="#" method="POST" > <!-- # means after clicking, stay on this page -->
 
-			<table border="1px" style="margin-left: 250px;">
+			<table border="1px" style="margin-left: 250px; margin-right: 30px;">
 				<!-- table header -->
 				<tr>
-					<th style="padding: 10px; font-size: 15px;">UserName</th>
-					<th style="padding: 10px; font-size: 15px;">First Name</th>
-					<th style="padding: 10px; font-size: 15px;">Last Name</th>
-					<th style="padding: 10px; font-size: 15px;">ID Number</th>
-					<th style="padding: 10px; font-size: 15px;">Application Time</th>
-					<th style="padding: 10px; font-size: 15px;">Status</th>
-					<th style="padding: 10px; font-size: 15px;">Amount</th>
-					<th style="padding: 10px; font-size: 15px;">Date Disbursed</th>
+					<th style="padding: 5px; font-size: 15px;">UserName</th>
+					<th style="padding: 5px; font-size: 15px;">First Name</th>
+					<th style="padding: 5px; font-size: 15px;">Last Name</th>
+					<th style="padding: 5px; font-size: 15px;">ID Number</th>
+					<th style="padding: 5px; font-size: 15px;">Application Time</th>
+					<th style="padding: 5px; font-size: 15px;">Status</th>
+					<th style="padding: 5px; font-size: 15px;">Amount</th>
+					<th style="padding: 5px; font-size: 15px;">Date Disbursed</th>
 				</tr>
 
 				<!-- while loop -->
