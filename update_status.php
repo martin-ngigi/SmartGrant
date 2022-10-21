@@ -4,14 +4,14 @@ error_reporting(0);
 session_start();
 
 // Import PHPMailer classes into the global namespace 
-use PHPMailer\PHPMailer\PHPMailer; 
-use PHPMailer\PHPMailer\SMTP; 
-use PHPMailer\PHPMailer\Exception; 
+use phpmailer\src\PHPMailer; 
+use phpmailer\src\SMTP; 
+use phpmailer\src\Exception; 
  
 // Include library files 
-require 'PHPMailer/src/Exception.php'; 
-require 'PHPMailer/src/PHPMailer.php'; 
-require 'PHPMailer/src/SMTP.php'; 
+require 'phpmailer/src/Exception.php'; 
+require 'phpmailer/src/PHPMailer.php'; 
+require 'phpmailer/src/SMTP.php'; 
 
 
 

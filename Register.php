@@ -343,7 +343,7 @@ if (isset($_POST['register_btn'])) {
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Date Of Birth</label>
-					<input class="input_deg" type="date" name="birth_date_input">
+					<input class="input_deg" type="text" name="birth_date_input"placeholder="NB: dd/mm/yyyy" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">County</label>
