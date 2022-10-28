@@ -180,70 +180,89 @@ if (isset($_POST['register_btn'])) {
 	    : (date("Y") - $birthDate[2]));
 	 // echo "Age is:" . $age;
 
+	  	if ( $age > 70 ) {//start of age >70
+	  		/**START OF SAVING IMAGE**/
+			$iname = $_FILES['file']['name'];
+		    $my_image_name = $username;
+		    $target_dir = "upload/";
+		    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+		    // Select file type
+		    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+		    // Valid file extensions
+		    $extensions_arr = array("jpg","jpeg","png","gif");
+
+		    // Check extension
+		    if( in_array($imageFileType,$extensions_arr) ){
+
+		    	// Upload file
+		    	if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$iname)){
+			       // Convert to base64 
+			       $image_base64 = base64_encode(file_get_contents('upload/'.$iname) );
+			       $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+			       // Insert record
+			       $query = "insert into images(ImageId_name,Image,Id_Num) values('$my_image_name', '".$image."', '$id_nu')";
+			       mysqli_query($data,$query);
+		        }
+		    
+		    }
+		  
+
+		    /**END OF SAVING IMAGE**/
+			
+
+			//before saving, first check whether there is another student with the same username so as to avoid corrission of usernames
+			$check="SELECT * FROM user WHERE username='$username'";
+			$check_user=mysqli_query($data,$check);
+			//check if there is multiple users
+			$row_count=mysqli_num_rows($check_user);
+			//if there is an existing user with the same username
+			if ($row_count==1) 
+			{
+				echo "<script type='text/javascript'>
+					alert('Username already exists. Try another username');
+					</script>";
+			}
+			else
+			{
+					//sql statement to save data to db
+				$sql="INSERT INTO user(Username, Date_of_birth, Phone, Age, County, Nationality, Gender, ID_Nu, Bank, Account_Nu, KRA_Pin, Employed, Pension_Beneficiary, Password, NK_Name, NK_ID, NK_Relationship, NK_Phone, NK_Email, UserType, Email, First_Name, Last_Name, Constituency) VALUES('$username', '$birth_date', '$phone', '$age', '$county', '$nationality', '$gender', '$id_nu', '$bank', '$account_nu', '$kra_pin', '$employed', '$pension_beneficiary', '$password', '$nk_name', '$nk_id', '$nk_relationship', '$nk_phone', '$nk_email', '$usertype', '$email', '$first_name', '$last_name', '$constituency')";
+
+				$result=mysqli_query($data, $sql);
+				if ($result)
+				{
+					echo "<script type='text/javascript'>
+					alert('data uploaded successfully');
+					</script>";
+					//after savind data successfully, redirect to Home Page
+					header("location:login.php");
+				}
+				else
+				{
+					echo "upload failed";
+				}
+			}
+
+					
+		}//end of if age >70
+		else{
+			$message="Appllicant can not register. Age is less than 70";
+			$_SESSION['registerMessage']=$message; //store error message in registerMessage
+			// header("location:Register.php");
+		}
+
+	}
+	else{
+		$message="Wrong date format. Please use dd/mm/yyyy";
+		$_SESSION['registerMessage']=$message; //store error message in registerMessage
+		// header("location:Register.php");
 	}
 
 
 
-	/**START OF SAVING IMAGE**/
-	$iname = $_FILES['file']['name'];
-    $my_image_name = $username;
-    $target_dir = "upload/";
-    $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
-    // Select file type
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-    // Valid file extensions
-    $extensions_arr = array("jpg","jpeg","png","gif");
-
-    // Check extension
-    if( in_array($imageFileType,$extensions_arr) ){
-
-    	// Upload file
-    	if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$iname)){
-	       // Convert to base64 
-	       $image_base64 = base64_encode(file_get_contents('upload/'.$iname) );
-	       $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
-	       // Insert record
-	       $query = "insert into images(ImageId_name,Image,Id_Num) values('$my_image_name', '".$image."', '$id_nu')";
-	       mysqli_query($data,$query);
-        }
-    
-    }
-    /**END OF SAVING IMAGE**/
 	
-
-	//before saving, first check whether there is another student with the same username so as to avoid corrission of usernames
-	$check="SELECT * FROM user WHERE username='$username'";
-	$check_user=mysqli_query($data,$check);
-	//check if there is multiple users
-	$row_count=mysqli_num_rows($check_user);
-	//if there is an existing user with the same username
-	if ($row_count==1) 
-	{
-		echo "<script type='text/javascript'>
-			alert('Username already exists. Try another username');
-			</script>";
-	}
-	else
-	{
-			//sql statement to save data to db
-		$sql="INSERT INTO user(Username, Date_of_birth, Phone, Age, County, Nationality, Gender, ID_Nu, Bank, Account_Nu, KRA_Pin, Employed, Pension_Beneficiary, Password, NK_Name, NK_ID, NK_Relationship, NK_Phone, NK_Email, UserType, Email, First_Name, Last_Name, Constituency) VALUES('$username', '$birth_date', '$phone', '$age', '$county', '$nationality', '$gender', '$id_nu', '$bank', '$account_nu', '$kra_pin', '$employed', '$pension_beneficiary', '$password', '$nk_name', '$nk_id', '$nk_relationship', '$nk_phone', '$nk_email', '$usertype', '$email', '$first_name', '$last_name', '$constituency')";
-
-		$result=mysqli_query($data, $sql);
-		if ($result)
-		{
-			echo "<script type='text/javascript'>
-			alert('data uploaded successfully');
-			</script>";
-			//after savind data successfully, redirect to Home Page
-			header("location:login.php");
-		}
-		else
-		{
-			echo "upload failed";
-		}
-	}
 
 
 	
@@ -319,6 +338,16 @@ if (isset($_POST['register_btn'])) {
 	<center>
 		<h1>Register</h1>
 		<div class="div_deg">
+			<!-- show error message -->
+			<h4 style="color: red">
+				<?php
+				//dont show warnings and uncessary errors
+				error_reporting(0); 
+				session_start(); //show the message
+				session_destroy();
+				echo $_SESSION['registerMessage'];
+				?>
+			</h4>
 			<!-- # means we are going to add some code in the same same file so as to save/insert/upload -->
 			<form action="#" method="POST" id="s" enctype='multipart/form-data'>
 				<div class="adm_int">
@@ -459,11 +488,14 @@ if (isset($_POST['register_btn'])) {
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Name</label>
-					<input class="input_deg" type="text" name="nk_name_input" pattern="[A-Za-z]+" required="true">
+					<input class="input_deg" type="text" name="nk_name_input" required="true">
 				</div>
 				<div class="adm_int">
 					<label class="label_text">ID</label>
 					<input class="input_deg" type="number" name="nk_id_input" pattern="[0-9]+" required="true">
+				</div>
+				<div class="adm_int">
+				    <input style="width: 200px;" class="input_deg" type='file' name='file2' />
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Relationship</label>
