@@ -208,6 +208,27 @@ if (isset($_POST['register_btn'])) {
 		    
 		    }
 		  
+		  	//Save Image2
+		  	$msg = "";
+
+			$filename = $_FILES["uploadfile"]["name"];
+			$tempname = $_FILES["uploadfile"]["tmp_name"];
+			$folder = "./image/" . $filename;
+
+			//$db = mysqli_connect("localhost", "root", "", "smartgrant");
+
+			// Get all the submitted data from the form
+			$sql = "INSERT INTO images2 (filename, username2, id_Num) VALUES ('$filename', '$username', '$id_nu')";
+
+			// Execute query
+			mysqli_query($data, $sql);
+
+			// Now let's move the uploaded image into the folder: image
+			if (move_uploaded_file($tempname, $folder)) {
+				echo "<h3> Image uploaded successfully!</h3>";
+			} else {
+				echo "<h3> Failed to upload image!</h3>";
+			}
 
 		    /**END OF SAVING IMAGE**/
 			
@@ -495,7 +516,7 @@ if (isset($_POST['register_btn'])) {
 					<input class="input_deg" type="number" name="nk_id_input" pattern="[0-9]+" required="true">
 				</div>
 				<div class="adm_int">
-				    <input style="width: 200px;" class="input_deg" type='file' name='file2' />
+				    <input style="width: 200px;" class="input_deg" type='file' name='uploadfile' />
 				</div>
 				<div class="adm_int">
 					<label class="label_text">Relationship</label>

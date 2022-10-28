@@ -242,26 +242,54 @@ require 'PHPMailer/src/SMTP.php';
 		</form>
 	</table>
 
-	<!-- START OF VIEW IMAGE -->
+
+
+	<div style="margin-left: 250px;  margin-top: 20px;">
+		<div class="row">
+			<div class="col-md-3">
+
+					<!-- START OF VIEW IMAGE -->
 	<?php
-	 include("config.php");
+	 			include("config.php");
 
- 	//get id_num from current_applications when update button is clicked
-	 $id_num = $_GET['national_id'];
+			 	//get id_num from current_applications when update button is clicked
+				 $id_num = $_GET['national_id'];
 
-	 $sql = "select image from images where Id_Num =  $id_num";
-	 $result = mysqli_query($data,$sql);
-	 $row = mysqli_fetch_array($result);
+				 $sql = "select image from images where Id_Num =  $id_num";
+				 $result = mysqli_query($data,$sql);
+				 $row = mysqli_fetch_array($result);
 
-	 $image_src = $row['image'];
-	 
-	?>
+				 $image_src = $row['image'];
+				 
+				?>
 
-	<div style="margin-left: 300px; margin-top: 20px; ">
-		<img src="<?php echo $image_src; ?>" alt="HTML5 Icon" style="width:350px;height:350px;">
+				<center><h3>Applicant's ID</h3></center>
+				<div>
+					<img src="<?php echo $image_src; ?>" alt="HTML5 Icon" style="width:350px;height:350px;">
 
+				</div>
+				<!-- END OF END IMAGE -->
+			</div>
+			<div class="col-md-3" style="margin-left: 200px; margin-top: 1px;">
+					<!-- START OF VIEW IMAGE 2 -->
+					<center><h3>Next of Kin's ID</h3></center>
+					<div id="display-image" >
+					<?php
+					$query2 = " select * from images2 where id_Num =  $id_num ";
+					$result2 = mysqli_query($data, $query2);
+
+					while ($data = mysqli_fetch_assoc($result2)) {
+					?>
+						<img src="./image/<?php echo $data['filename']; ?>" alt="HTML5 Icon" style="width:350px;height:350px;">
+
+					<?php
+					}
+					?>
+				<!-- END OF END IMAGE 2 -->
+			</div>
+		
+		</div>
 	</div>
-	<!-- END OF END IMAGE -->
 
 </body>
 </html>
